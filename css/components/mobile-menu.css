@@ -17,6 +17,13 @@
   transition: color var(--transition-base);
 }
 
+/* Hide hamburger on desktop */
+@media (min-width: 768px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
 .mobile-menu-btn:hover {
   color: var(--color-text-muted);
 }
