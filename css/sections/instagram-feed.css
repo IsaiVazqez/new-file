@@ -1,6 +1,6 @@
 /* ==========================================================================
    Instagram Feed Section
-   Grid of IG posts with hover overlay.
+   Grid of IG posts with hover overlay, skeletons, and fallback.
    ========================================================================== */
 
 .ig-grid {
@@ -42,6 +42,46 @@
 
 .ig-item:hover .ig-hover {
   opacity: 1;
+}
+
+/* --- Skeleton loading state --- */
+
+.ig-skeleton .ig-image {
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.04) 8%,
+    rgba(255, 255, 255, 0.08) 18%,
+    rgba(255, 255, 255, 0.04) 33%
+  );
+  background-size: 200% 100%;
+  animation: ig-shimmer 1.5s linear infinite;
+}
+
+@keyframes ig-shimmer {
+  to { background-position: -200% 0; }
+}
+
+/* --- Fallback / error state --- */
+
+.ig-fallback {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.ig-fallback a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 2px;
+  transition: border-color var(--transition-base);
+}
+
+.ig-fallback a:hover {
+  border-color: var(--color-text);
 }
 
 /* --- Responsive --- */

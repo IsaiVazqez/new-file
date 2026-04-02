@@ -177,6 +177,7 @@
     initCarousel();
     initSmoothScroll();
     initContactForm();
+    if (typeof initInstagramFeed === 'function') initInstagramFeed();
   });
 
 })();
