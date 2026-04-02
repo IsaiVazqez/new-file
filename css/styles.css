@@ -16,6 +16,7 @@
 @import url('./components/buttons.css');
 @import url('./components/mobile-menu.css');
 @import url('./components/animations.css');
+@import url('./components/social-sidebar.css');
 
 /* --- Page Sections --- */
 @import url('./sections/hero.css');

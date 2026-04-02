@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Social Sidebar + Floating Contact Buttons
+   Vertical social links on left edge, contact CTAs at bottom.
+   ========================================================================== */
+
+/* --- Social sidebar (left edge, vertical) --- */
+
+.social-sidebar {
+  position: fixed;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.social-sidebar a {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--transition-base), transform var(--transition-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-sidebar a:hover {
+  color: var(--color-text);
+  transform: scale(1.2);
+}
+
+/* --- Floating contact buttons (bottom center) --- */
+
+.floating-contact {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 30;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.floating-btn {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-text);
+  backdrop-filter: blur(10px);
+  transition:
+    background-color var(--transition-base),
+    transform var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.floating-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.floating-btn--wa:hover {
+  background-color: rgba(37, 211, 102, 0.2);
+  border-color: rgba(37, 211, 102, 0.4);
+  color: #25d366;
+}
+
+/* --- Responsive: hide sidebar on mobile, adjust floating --- */
+
+@media (max-width: 767px) {
+  .social-sidebar {
+    display: none;
+  }
+
+  .floating-contact {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .floating-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}

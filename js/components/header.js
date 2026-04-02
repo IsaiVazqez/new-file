@@ -40,8 +40,9 @@ const headerHTML = () => `
       </a>
       <nav class="header-nav">
         <a href="${buildHref('index')}" data-page="index">Inicio</a>
-        <a href="${buildHref('nosotros')}" data-page="nosotros">Nosotros</a>
         <a href="${buildHref('portafolio')}" data-page="portafolio">Portafolio</a>
+        <a href="${buildHref('servicios')}" data-page="servicios">Servicios</a>
+        <a href="${buildHref('equipo')}" data-page="equipo">Equipo</a>
         <a href="${buildHref('contacto')}" data-page="contacto">Contacto</a>
       </nav>
     </div>
@@ -59,8 +60,9 @@ const headerHTML = () => `
   </button>
   <nav class="mobile-menu-nav">
     <a href="${buildHref('index')}" data-page="index">Inicio</a>
-    <a href="${buildHref('nosotros')}" data-page="nosotros">Nosotros</a>
     <a href="${buildHref('portafolio')}" data-page="portafolio">Portafolio</a>
+    <a href="${buildHref('servicios')}" data-page="servicios">Servicios</a>
+    <a href="${buildHref('equipo')}" data-page="equipo">Equipo</a>
     <a href="${buildHref('contacto')}" data-page="contacto">Contacto</a>
   </nav>
 </div>

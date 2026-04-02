@@ -127,60 +127,61 @@
     <main class="flex-1">
 
       <!-- ============================================================
-           HERO SECTION
+           HERO — Split layout: text left, team photo right
            ============================================================ -->
-      <section class="hero fade-in">
-        <div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZtwEyHDfjFnALTorJ0YMbxlY7Q6VYwYByi00L97hBbzT8awh76a0pk6XiF8p6IuQfaM6dKCNw63lbTTVoGkBPBIXKgtoZYGb1U2syY7uKgt7C7YLhA_7fuDygfZYb2WXkG2osdmZb9xzsfeeUJ-gvJw4BCgtphZfq80miDClGC8BpeQ6wvp_Ksd1_jgwJ1b3wZ0enNyBKR_ymgIK7bdzznCXSRcH8QnzwGmaqa7ICHEADCH7KV6deoZXZ3Rpw1nUcWufGjz0Oib4');"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="hero-subtitle fade-in stagger-1">Sobre Nosotros</p>
-          <h1 class="hero-title fade-in stagger-2">NUESTRA HISTORIA</h1>
-          <p class="hero-description fade-in stagger-3">
-            Transformamos ideas en experiencias visuales. Somos un estudio dedicado al storytelling visual
-            a través de la arquitectura, el diseño y la tecnología de vanguardia.
-          </p>
+      <section class="relative min-h-screen flex items-center overflow-hidden">
+
+        <!-- Social sidebar (left edge) -->
+        <div class="social-sidebar">
+          <a href="https://www.tiktok.com/@new.file" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.75a8.18 8.18 0 004.76 1.52V6.84a4.84 4.84 0 01-1-.15z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/new.file" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Behance">
+            <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029h3.168zm-7.686-4h4.965c-.105-1.547-1.136-2.219-2.477-2.219-1.466 0-2.277.768-2.488 2.219zm-9.574 6.988H0V5.021h6.953c5.476.081 5.58 5.444 2.72 6.906 3.461 1.26 3.577 8.061-3.207 8.061zM3 11h3.584c2.508 0 2.906-3-.312-3H3v3zm3.391 3H3v3.016h3.341c3.055 0 2.868-3.016.05-3.016z"/></svg>
+          </a>
         </div>
-        <!-- Bounce arrow -->
-        <a href="#identidad" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-          <span class="material-symbols-outlined text-white/70 text-4xl">keyboard_arrow_down</span>
-        </a>
-      </section>
 
-      <!-- ============================================================
-           ARQUITECTURA CON IDENTIDAD
-           ============================================================ -->
-      <section id="identidad" class="section-padding px-6 md:px-12 lg:px-24">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-7xl mx-auto">
+        <!-- Hero content grid -->
+        <div class="w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center pt-32 pb-16 lg:pt-0 lg:pb-0">
 
-          <!-- Text Column -->
-          <div class="fade-in-left stagger-1">
-            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
-              Arquitectura con Identidad
-            </h2>
-            <div class="divider mb-8 w-24"></div>
-            <p class="text-accent leading-relaxed mb-6 text-lg font-light">
-              En NewFile Studio creemos que cada proyecto tiene una historia propia. Nuestro enfoque
-              combina sensibilidad artística con precisión técnica para crear visualizaciones que
-              trascienden lo convencional y conectan emocionalmente con cada espacio.
+          <!-- Left: Text -->
+          <div class="fade-in-left z-10">
+            <h1 class="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter leading-[0.9] mb-8">
+              NewFile
+            </h1>
+            <p class="text-base md:text-lg text-white/60 font-light leading-relaxed max-w-md mb-10">
+              Estudio de visualización arquitectónica en Mérida, Yucatán. Transformamos proyectos en experiencias visuales inmersivas a través de renders 3D, recorridos virtuales y dirección de arte.
             </p>
-            <p class="text-accent leading-relaxed text-lg font-light">
-              Desde Mérida, Yucatán, trabajamos con arquitectos, desarrolladores y marcas que buscan
-              comunicar la esencia de sus proyectos. Cada imagen, cada recorrido virtual, cada
-              experiencia inmersiva está diseñada para revelar la identidad única de la arquitectura.
-            </p>
+            <a href="contacto.html" class="inline-block bg-white text-black px-10 py-4 text-xs font-bold tracking-[0.25em] uppercase hover:bg-white/90 transition-all hover:scale-[1.02]">
+              Contáctanos
+            </a>
           </div>
 
-          <!-- Image Column -->
-          <div class="fade-in-right stagger-2">
-            <div class="overflow-hidden h-[600px]">
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP4Stn_ZV6W_TPjay7Xx-RSTBofT4Janbxe3PAz73WEgPVw77ehzWdNi1MFh07f5gzOTHEn7-2QDoeUglCgS5-tSO6uBJxV9FOzml2No5wTCVs5rmkUW5kmkDeF_NdFRBuryWz1MOoKw21vQAiuo-FbnA3MK7NJafJaEjO74emBZUgAIf49WKa5b0r7GEruYnrVLP7HBOJCUVdNYbi4QJmV6OWkmEE5t8ab-ftHeRMR-FzSTN2DHn7U9U-mvgsHyY8CqbfiDu3qfQ"
-                alt="Arquitectura con identidad"
-                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-              />
+          <!-- Right: Team photo placeholder -->
+          <div class="fade-in-right relative h-[500px] lg:h-[85vh] lg:max-h-[700px]">
+            <div class="w-full h-full bg-cover bg-center bg-no-repeat"
+                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCP4Stn_ZV6W_TPjay7Xx-RSTBofT4Janbxe3PAz73WEgPVw77ehzWdNi1MFh07f5gzOTHEn7-2QDoeUglCgS5-tSO6uBJxV9FOzml2No5wTCVs5rmkUW5kmkDeF_NdFRBuryWz1MOoKw21vQAiuo-FbnA3MK7NJafJaEjO74emBZUgAIf49WKa5b0r7GEruYnrVLP7HBOJCUVdNYbi4QJmV6OWkmEE5t8ab-ftHeRMR-FzSTN2DHn7U9U-mvgsHyY8CqbfiDu3qfQ'); background-color: #111;">
             </div>
           </div>
+
         </div>
+
+        <!-- Floating contact buttons (bottom center) -->
+        <div class="floating-contact">
+          <a href="mailto:hola@newfile.studio" class="floating-btn" aria-label="Email">
+            <span class="material-symbols-outlined text-xl">mail</span>
+          </a>
+          <a href="https://wa.me/529991234567" target="_blank" rel="noopener noreferrer" class="floating-btn floating-btn--wa" aria-label="WhatsApp">
+            <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.654-.698c.997.599 1.956.913 3.243.913 3.179 0 5.767-2.587 5.767-5.766 0-3.18-2.587-5.767-5.767-5.767zm6.656 12.423c-1.688 1.686-3.929 2.616-6.289 2.616-1.398 0-2.736-.348-3.945-1.026l-4.437 1.164 1.184-4.321c-.722-1.258-1.104-2.673-1.104-4.133 0-4.686 3.814-8.5 8.5-8.5 2.273 0 4.41.885 6.098 2.572 1.686 1.688 2.616 3.928 2.616 6.289 0 2.361-.929 4.498-2.623 6.185zm-1.958-4.576c-.244-.122-1.444-.712-1.667-.793-.223-.082-.385-.122-.548.122-.162.244-.629.793-.77.955-.142.163-.284.183-.528.061-.244-.122-1.028-.379-1.959-1.209-.723-.644-1.211-1.44-1.353-1.684-.142-.244-.015-.376.107-.497.109-.109.244-.284.365-.426.122-.142.163-.244.244-.406.081-.163.041-.305-.02-.427-.061-.122-.548-1.321-.751-1.809-.198-.475-.4-.41-.548-.418-.142-.007-.305-.008-.467-.008-.162 0-.426.061-.649.305-.223.244-.852.833-.852 2.031 0 1.199.873 2.358.995 2.52.122.163 1.717 2.622 4.159 3.677 2.012.869 2.012.579 2.378.539.366-.041 1.444-.59 1.647-1.159.203-.569.203-1.056.142-1.159-.061-.102-.223-.163-.467-.285z" fill-rule="evenodd"/></svg>
+          </a>
+        </div>
+
       </section>
 
       <!-- ============================================================
