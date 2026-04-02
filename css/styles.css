@@ -24,6 +24,7 @@
 @import url('./sections/contact-form.css');
 @import url('./sections/tech-grid.css');
 @import url('./sections/services.css');
+@import url('./sections/instagram-feed.css');
 
 /* --- Utilities --- */
 @import url('./base/utilities.css');

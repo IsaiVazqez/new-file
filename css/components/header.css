@@ -117,22 +117,6 @@
   gap: 1rem;
 }
 
-.search-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  color: var(--color-text);
-  cursor: pointer;
-  padding: 0.5rem;
-  transition: color var(--transition-base);
-}
-
-.search-btn:hover {
-  color: var(--color-text-muted);
-}
-
 /* --- Responsive --- */
 
 @media (min-width: 768px) {

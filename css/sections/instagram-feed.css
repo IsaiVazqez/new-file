@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Instagram Feed Section
+   Grid of IG posts with hover overlay.
+   ========================================================================== */
+
+.ig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.375rem;
+}
+
+.ig-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: block;
+}
+
+.ig-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.ig-item:hover .ig-image {
+  transform: scale(1.08);
+}
+
+.ig-hover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  color: var(--color-text);
+}
+
+.ig-item:hover .ig-hover {
+  opacity: 1;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 639px) {
+  .ig-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

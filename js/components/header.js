@@ -46,9 +46,6 @@ const headerHTML = () => `
       </nav>
     </div>
     <div class="header-right">
-      <button class="search-btn" aria-label="Buscar">
-        <span class="material-symbols-outlined">search</span>
-      </button>
       <button class="mobile-menu-btn" aria-label="Men\u00fa">
         <span class="material-symbols-outlined">menu</span>
       </button>
