@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Scroll & Page Animations
+   IntersectionObserver-driven entrance animations + keyframes.
+   ========================================================================== */
+
+/* --- Fade Up --- */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--transition-animation),
+    transform var(--transition-animation);
+}
+
+/* --- Fade from Left --- */
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity var(--transition-animation),
+    transform var(--transition-animation);
+}
+
+/* --- Fade from Right --- */
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity var(--transition-animation),
+    transform var(--transition-animation);
+}
+
+/* --- Scale In --- */
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity var(--transition-animation),
+    transform var(--transition-animation);
+}
+
+/* --- Blur In --- */
+
+.blur-in {
+  opacity: 0;
+  filter: blur(8px);
+}
+
+.blur-in.visible {
+  opacity: 1;
+  filter: blur(0);
+  transition:
+    opacity 1s ease,
+    filter 1s ease;
+}
+
+/* --- Stagger Delays --- */
+
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+.stagger-7 { transition-delay: 0.7s; }
+.stagger-8 { transition-delay: 0.8s; }
+
+/* --- Keyframe Animations --- */
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Utility animation classes */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}

@@ -1,0 +1,29 @@
+/* ==========================================================================
+   NewFile Studio — Main Stylesheet (Entry Point)
+   Only globals, variables, reset, and imports.
+   ========================================================================== */
+
+/* --- Design Tokens --- */
+@import url('./base/variables.css');
+
+/* --- Reset & Base --- */
+@import url('./base/reset.css');
+
+/* --- Reusable Components --- */
+@import url('./components/loader.css');
+@import url('./components/header.css');
+@import url('./components/footer.css');
+@import url('./components/buttons.css');
+@import url('./components/mobile-menu.css');
+@import url('./components/animations.css');
+
+/* --- Page Sections --- */
+@import url('./sections/hero.css');
+@import url('./sections/carousel.css');
+@import url('./sections/portfolio-grid.css');
+@import url('./sections/contact-form.css');
+@import url('./sections/tech-grid.css');
+@import url('./sections/services.css');
+
+/* --- Utilities --- */
+@import url('./base/utilities.css');

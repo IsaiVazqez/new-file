@@ -1,0 +1,58 @@
+/* ==========================================================================
+   Services Cards
+   Full-image cards for Recorridos Virtuales and Experiencias 360.
+   ========================================================================== */
+
+.service-card {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Background image layer */
+.service-card .bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.service-card:hover .bg {
+  transform: scale(1.1);
+}
+
+/* Content overlay */
+.service-card > .overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-overlay-light);
+  transition: background-color var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.service-card:hover > .overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Arrow icon slide */
+.service-card .arrow {
+  transition: transform var(--transition-base);
+  display: inline-block;
+}
+
+.service-card:hover .arrow {
+  transform: translateX(0.5rem);
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 767px) {
+  .service-card {
+    height: 300px;
+  }
+}

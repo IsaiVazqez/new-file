@@ -1,0 +1,44 @@
+/* ==========================================================================
+   Design Tokens — CSS Custom Properties
+   Single source of truth for colors, fonts, spacing, and timing.
+   ========================================================================== */
+
+:root {
+  /* Colors */
+  --color-bg: #000000;
+  --color-surface: #121212;
+  --color-surface-hover: #1a1a1a;
+  --color-text: #ffffff;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #a3a3a3;
+  --color-text-faint: #6b7280;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-border-light: rgba(255, 255, 255, 0.05);
+  --color-border-strong: rgba(255, 255, 255, 0.2);
+  --color-overlay: rgba(0, 0, 0, 0.7);
+  --color-overlay-light: rgba(0, 0, 0, 0.4);
+  --color-success: #4ade80;
+  --color-whatsapp: #25d366;
+
+  /* Typography */
+  --font-primary: 'Jost', sans-serif;
+
+  /* Spacing */
+  --header-height: 6rem;
+  --header-height-scrolled: 4rem;
+  --header-height-mobile: 4.5rem;
+  --header-height-mobile-scrolled: 3.5rem;
+  --section-padding-y: 5rem;
+  --section-padding-y-mobile: 3rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.7s ease;
+  --transition-animation: 0.8s ease;
+
+  /* Z-index layers */
+  --z-header: 50;
+  --z-mobile-menu: 40;
+  --z-hero-content: 10;
+}

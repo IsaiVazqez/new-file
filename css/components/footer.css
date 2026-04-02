@@ -1,0 +1,178 @@
+/* ==========================================================================
+   Footer Component
+   Site-wide footer with contact info, location, and social links.
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  padding: 4rem 0;
+}
+
+.footer-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+/* --- Brand --- */
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.footer-subtitle {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-text-faint);
+  font-weight: 600;
+}
+
+/* --- Columns --- */
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.footer-col h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  margin-bottom: 1.5rem;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-col li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.footer-col li .material-symbols-outlined {
+  font-size: 0.875rem;
+}
+
+.footer-col a {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-base);
+  letter-spacing: 0.05em;
+}
+
+.footer-col a:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-col p {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+}
+
+/* --- Social --- */
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-links a {
+  color: var(--color-text-muted);
+  transition: color var(--transition-base), transform var(--transition-base);
+}
+
+.social-links a:hover {
+  color: var(--color-text);
+  transform: scale(1.15);
+  text-decoration: none;
+}
+
+.social-links svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* --- Bottom bar --- */
+
+.footer-bottom {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border-light);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--color-text-faint);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-legal a {
+  color: var(--color-text-faint);
+  font-size: 0.75rem;
+  transition: color var(--transition-base);
+}
+
+.footer-legal a:hover {
+  color: var(--color-text);
+}
+
+/* --- Responsive --- */
+
+@media (min-width: 640px) {
+  .footer-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

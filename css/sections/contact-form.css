@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Contact Form
+   Minimal, dark-themed form fields for the contact page.
+   ========================================================================== */
+
+.minimal-input {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid transparent;
+  color: var(--color-text);
+  padding: 1rem 1.25rem;
+  width: 100%;
+  font-family: var(--font-primary);
+  font-weight: 300;
+  font-size: 0.9rem;
+  border-radius: 0;
+  outline: none;
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.minimal-input:focus {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.minimal-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+textarea.minimal-input {
+  resize: none;
+  min-height: 150px;
+}
+
+/* Contact info sidebar */
+.contact-label {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+  margin-bottom: 0.75rem;
+}
+
+.contact-link {
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: color var(--transition-base);
+}
+
+.contact-link:hover {
+  color: var(--color-text-muted);
+}
+
+/* WhatsApp icon hover */
+.whatsapp-icon {
+  transition: color var(--transition-base);
+}
+
+.whatsapp-icon:hover {
+  color: var(--color-whatsapp);
+}
+
+/* Social follow links */
+.follow-link {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid transparent;
+  transition:
+    color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.follow-link:hover {
+  color: var(--color-text-muted);
+  border-color: var(--color-text-muted);
+}
+
+/* Success message */
+.form-success-message {
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(74, 222, 128, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
