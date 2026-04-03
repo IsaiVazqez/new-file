@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio — NewFile Studio | Renders 3D y Proyectos en Mérida</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Portafolio de proyectos de NewFile Studio: renders 3D fotorrealistas, visualización arquitectónica e interiorismo digital en Mérida, Yucatán. Casa Mérida, Hacienda Terra, The Hub Workspace y más." />
+  <meta name="keywords" content="portafolio renders 3D, proyectos arquitectura Mérida, visualización arquitectónica Yucatán, galería renders, interiorismo digital, Casa Mérida, Hacienda Terra" />
+  <meta name="author" content="NewFile Studio" />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="MX-YUC" />
+  <meta name="geo.placename" content="Mérida" />
+  <link rel="canonical" href="https://newfile.studio/portafolio" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portafolio — NewFile Studio" />
+  <meta property="og:description" content="Galería de renders 3D y proyectos de visualización arquitectónica en Mérida, Yucatán." />
+  <meta property="og:url" content="https://newfile.studio/portafolio" />
+  <meta property="og:site_name" content="NewFile Studio" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:image" content="https://newfile.studio/assets/images/logo-negro-full.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portafolio — NewFile Studio" />
+  <meta name="twitter:description" content="Renders 3D y proyectos de arquitectura en Mérida, Yucatán." />
+  <meta name="twitter:image" content="https://newfile.studio/assets/images/logo-negro-full.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-negro.png" />
+  <link rel="apple-touch-icon" href="assets/images/logo-negro.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Portafolio — NewFile Studio",
+    "description": "Galería de proyectos de visualización arquitectónica y renders 3D.",
+    "url": "https://newfile.studio/portafolio",
+    "publisher": {
+      "@type": "Organization",
+      "name": "NewFile Studio",
+      "url": "https://newfile.studio"
+    }
+  }
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link href="css/styles.css" rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ffffff",
+            "accent": "#a3a3a3",
+            "background-dark": "#000000",
+            "surface": "#121212",
+          },
+          fontFamily: {
+            "sans": ["Jost", "sans-serif"],
+            "serif": ["Jost", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+
+<body class="bg-black text-white antialiased">
+  <!-- Page Loader -->
+  <div class="page-loader" id="page-loader">
+    <div class="loader-logo">
+      <div class="loader-ring"></div>
+      <img src="assets/images/logo-blanco.png" alt="NewFile" />
+    </div>
+    <p class="loader-brand">NewFile Studio</p>
+    <div class="loader-progress"></div>
+  </div>
+
+  <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <main class="flex-1 pt-32 pb-24 px-4 md:px-8">
+
+      <!-- ============================================================
+           DENSE GRID GALLERY
+           ============================================================ -->
+      <section data-testid="portfolio-grid">
+        <div class="dense-grid" id="dynamic-portfolio-grid">
+          <p style="grid-column:1/-1;text-align:center;color:#555;padding:4rem 0">Cargando portafolio...</p>
+        </div>
+        <div id="portfolio-sentinel" style="height:1px"></div>
+        <p id="portfolio-loading" style="text-align:center;color:#555;padding:1rem 0;display:none">Cargando m&aacute;s...</p>
+      </section>
+
+      <script>
+        (async function() {
+          var grid = document.getElementById('dynamic-portfolio-grid');
+          var sentinel = document.getElementById('portfolio-sentinel');
+          var loadingText = document.getElementById('portfolio-loading');
+          var PAGE_SIZE = 15;
+          var offset = 0;
+          var total = Infinity;
+          var loading = false;
+
+          function renderProject(p) {
+            var w = p.grid_w || 1;
+            var h = p.grid_h || 1;
+            var img = p.cover_image_url || '';
+            var cat = p.category || '';
+            var title = p.title || '';
+
+            return '<div class="grid-item item-w-' + w + ' item-h-' + h + '">' +
+              '<img src="' + img + '" alt="' + title + '" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />' +
+              '<div class="project-overlay">' +
+              (cat ? '<p>' + cat + '</p>' : '') +
+              '<h3>' + title + '</h3>' +
+              '</div></div>';
+          }
+
+          async function loadMore() {
+            if (loading || offset >= total) return;
+            loading = true;
+            loadingText.style.display = 'block';
+            try {
+              var res = await fetch('/api/v1/projects/published?limit=' + PAGE_SIZE + '&offset=' + offset);
+              var data = await res.json();
+              if (!data.success) return;
+              total = data.data.total;
+              var projects = data.data.projects;
+              var html = projects.map(renderProject).join('');
+              grid.insertAdjacentHTML('beforeend', html);
+              offset += projects.length;
+              if (offset >= total) {
+                sentinel.style.display = 'none';
+                loadingText.style.display = 'none';
+              }
+            } catch(e) {
+              console.error('[PORTFOLIO] ERROR:', e);
+            }
+            loading = false;
+            loadingText.style.display = 'none';
+          }
+
+          // Initial load
+          grid.innerHTML = '';
+          await loadMore();
+
+          // Infinite scroll
+          if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+              if (entries[0].isIntersecting) loadMore();
+            }, { rootMargin: '200px' });
+            observer.observe(sentinel);
+          }
+        })();
+      </script>
+
+      <!-- ============================================================
+           INSPIRATIONAL QUOTE
+           ============================================================ -->
+      <section class="mt-32 mb-20 fade-in" data-testid="portfolio-quote">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="material-symbols-outlined text-5xl font-thin mb-8 block">north_east</span>
+          <h2 class="text-4xl md:text-6xl font-semibold tracking-tight mb-10">
+            Convertimos ideas en im&aacute;genes que inspiran.
+          </h2>
+          <div class="w-px h-16 bg-white/20 mx-auto mb-10"></div>
+          <p class="text-accent text-lg font-light leading-relaxed max-w-2xl mx-auto">
+            Somos un estudio de arquitectura con base en M&eacute;rida, dedicados al dise&ntilde;o contempor&aacute;neo. Nuestro enfoque fusiona el minimalismo moderno con el alma c&aacute;lida y tropical de Yucat&aacute;n, creando espacios que resuenan con su entorno y prop&oacute;sito. Cada l&iacute;nea es una conversaci&oacute;n entre la tradici&oacute;n y el futuro.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/components/header.js"></script>
+  <script src="js/components/footer.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/lazyload.js"></script>
+</body>
+</html>

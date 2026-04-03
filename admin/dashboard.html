@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — NewFile Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">NewFile Studio</div>
+      <ul class="sidebar-nav">
+        <li><a href="#" class="active" data-section="projects" data-testid="nav-portfolio">
+          <span class="icon material-symbols-outlined">photo_library</span> Portafolio
+        </a></li>
+        <li><a href="#" data-section="services" data-testid="nav-services">
+          <span class="icon material-symbols-outlined">design_services</span> Servicios
+        </a></li>
+        <li><a href="#" data-section="settings" data-testid="nav-settings">
+          <span class="icon material-symbols-outlined">settings</span> Configuración
+        </a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <button onclick="Auth.logout()" data-testid="btn-logout">Cerrar sesión</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-content">
+
+      <!-- === PROJECTS SECTION === -->
+      <div id="section-projects" data-testid="section-projects">
+        <div class="page-header">
+          <h2>Portafolio</h2>
+          <div style="display:flex;gap:0.5rem">
+            <button class="btn btn-outline" id="btn-toggle-preview" onclick="Projects.togglePreview()">Vista Previa Grid</button>
+            <button class="btn btn-primary" onclick="Projects.openModal()" data-testid="btn-new-project">+ Nuevo Proyecto</button>
+          </div>
+        </div>
+        <p style="color:var(--text-muted);font-size:0.85rem;margin:-1rem 0 1.5rem" data-testid="drag-hint">Arrastra las tarjetas para reordenar el portafolio</p>
+        <div class="projects-grid" id="projects-grid" data-testid="projects-grid"></div>
+        <div id="projects-preview" style="display:none">
+          <div class="dense-grid" id="preview-grid"></div>
+          <p style="color:var(--text-muted);font-size:0.8rem;margin-top:1rem">Hover sobre una imagen para cambiar su tamaño. Arrastra para reordenar.</p>
+        </div>
+      </div>
+
+      <!-- === IMAGES SECTION (per project) === -->
+      <div id="section-images" style="display:none" data-testid="section-images">
+        <div class="page-header">
+          <div>
+            <button class="btn btn-outline" onclick="Projects.closeImages()" data-testid="btn-back-projects">&larr; Volver</button>
+            <h2 style="display:inline;margin-left:1rem" id="images-project-title" data-testid="images-project-title"></h2>
+          </div>
+        </div>
+        <div class="drop-zone" id="images-drop-zone" style="margin-bottom:1.5rem">
+          <div class="drop-zone-prompt">
+            <span class="material-symbols-outlined" style="font-size:2rem;opacity:0.4">cloud_upload</span>
+            <p>Arrastra imágenes aquí o haz click para seleccionar</p>
+            <p style="font-size:0.75rem;color:var(--text-muted)">JPG, PNG o WebP — máx 20MB por archivo</p>
+          </div>
+          <input type="file" id="image-upload-input" multiple accept="image/jpeg,image/png,image/webp" style="display:none" data-testid="input-image-upload" />
+        </div>
+        <div class="card">
+          <div class="image-grid" id="images-grid" data-testid="images-grid"></div>
+        </div>
+        <p id="images-legend" style="color:var(--text-muted);font-size:0.8rem;margin-top:0.5rem"></p>
+      </div>
+
+      <!-- === SERVICES SECTION === -->
+      <div id="section-services" style="display:none" data-testid="section-services">
+        <div class="page-header">
+          <h2>Servicios</h2>
+          <button class="btn btn-primary" onclick="Services.openModal()" data-testid="btn-new-service">+ Nuevo Servicio</button>
+        </div>
+        <p style="color:var(--text-muted);font-size:0.85rem;margin:-1rem 0 1.5rem">Arrastra las tarjetas para reordenar los servicios</p>
+        <div class="projects-grid" id="services-grid" data-testid="services-grid"></div>
+      </div>
+
+      <!-- === SETTINGS SECTION === -->
+      <div id="section-settings" style="display:none" data-testid="section-settings">
+        <div class="page-header">
+          <h2>Configuración</h2>
+          <button class="btn btn-primary" onclick="SiteSettings.saveAll()" data-testid="btn-save-settings">Guardar Cambios</button>
+        </div>
+
+        <div class="card" style="margin-bottom:1.5rem">
+          <h4 style="margin-bottom:1rem;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted)">General</h4>
+          <div id="settings-general"></div>
+        </div>
+
+        <div class="card" style="margin-bottom:1.5rem">
+          <h4 style="margin-bottom:1rem;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted)">Contacto</h4>
+          <div id="settings-contacto"></div>
+        </div>
+
+        <div class="card">
+          <h4 style="margin-bottom:1rem;font-size:1rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted)">Redes Sociales</h4>
+          <div id="settings-redes"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- === PROJECT MODAL === -->
+  <div class="modal-overlay" id="project-modal" data-testid="project-modal">
+    <div class="modal">
+      <h3 id="modal-title">Nuevo Proyecto</h3>
+      <form id="project-form" onsubmit="event.preventDefault(); Projects.save()" data-testid="project-form">
+        <input type="hidden" id="project-id" />
+        <div class="form-group">
+          <label for="p-title">Título</label>
+          <input type="text" id="p-title" required data-testid="input-project-title" />
+        </div>
+        <div class="form-group">
+          <label for="p-description">Descripción</label>
+          <textarea id="p-description" rows="3" data-testid="input-project-description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="p-category">Categoría</label>
+          <input type="text" id="p-category" placeholder="Residencial, Comercial..." data-testid="input-project-category" />
+        </div>
+        <div class="form-group">
+          <label>Tamaño en el grid del portafolio</label>
+          <div class="grid-size-picker" id="grid-size-picker">
+            <button type="button" class="grid-size-btn active" data-w="1" data-h="1" onclick="Projects.setGridSize(1,1)">
+              <div class="grid-size-preview" style="width:24px;height:24px"></div>
+              <span>Normal</span>
+            </button>
+            <button type="button" class="grid-size-btn" data-w="2" data-h="1" onclick="Projects.setGridSize(2,1)">
+              <div class="grid-size-preview" style="width:48px;height:24px"></div>
+              <span>Ancho</span>
+            </button>
+            <button type="button" class="grid-size-btn" data-w="1" data-h="2" onclick="Projects.setGridSize(1,2)">
+              <div class="grid-size-preview" style="width:24px;height:48px"></div>
+              <span>Alto</span>
+            </button>
+            <button type="button" class="grid-size-btn" data-w="2" data-h="2" onclick="Projects.setGridSize(2,2)">
+              <div class="grid-size-preview" style="width:48px;height:48px"></div>
+              <span>Grande</span>
+            </button>
+          </div>
+          <input type="hidden" id="p-grid-w" value="1" />
+          <input type="hidden" id="p-grid-h" value="1" />
+        </div>
+        <div class="form-group">
+          <label>Imágenes del proyecto</label>
+          <input type="hidden" id="p-cover" data-testid="input-project-cover" />
+          <div class="drop-zone" id="cover-drop-zone" data-testid="cover-drop-zone">
+            <div class="drop-zone-prompt" id="cover-prompt">
+              <span class="material-symbols-outlined" style="font-size:2rem;opacity:0.4">cloud_upload</span>
+              <p>Arrastra imágenes aquí o <label for="cover-file-input" style="color:var(--accent);cursor:pointer;text-decoration:underline">selecciona archivos</label></p>
+              <p style="font-size:0.75rem;color:var(--text-muted)">JPG, PNG o WebP — máx 20MB por archivo</p>
+            </div>
+            <div class="drop-zone-thumbs" id="cover-thumbs" style="display:none"></div>
+            <input type="file" id="cover-file-input" multiple accept="image/jpeg,image/png,image/webp" style="display:none" data-testid="input-cover-file" />
+          </div>
+        </div>
+        <div class="form-group" style="margin-top:0.5rem">
+          <label class="toggle-label">
+            <input type="checkbox" id="p-published" data-testid="input-project-published" /> Publicado
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="Projects.closeModal()" data-testid="btn-project-cancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-testid="btn-project-save">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- === SERVICE MODAL === -->
+  <div class="modal-overlay" id="service-modal" data-testid="service-modal">
+    <div class="modal">
+      <h3 id="service-modal-title">Nuevo Servicio</h3>
+      <form id="service-form" onsubmit="event.preventDefault(); Services.save()" data-testid="service-form">
+        <input type="hidden" id="service-id" />
+        <input type="hidden" id="s-image-url" />
+        <div class="form-group">
+          <label for="s-title">Título</label>
+          <input type="text" id="s-title" required data-testid="input-service-title" />
+        </div>
+        <div class="form-group">
+          <label for="s-description">Descripción</label>
+          <textarea id="s-description" rows="3" data-testid="input-service-description"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="s-link">URL de enlace (opcional)</label>
+          <input type="text" id="s-link" placeholder="https://..." data-testid="input-service-link" />
+        </div>
+        <div class="form-group">
+          <label>Imagen del servicio</label>
+          <div class="drop-zone" id="service-image-zone">
+            <div class="drop-zone-prompt" id="service-image-prompt">
+              <span class="material-symbols-outlined" style="font-size:2rem;opacity:0.4">cloud_upload</span>
+              <p>Arrastra una imagen o <label for="service-image-input" style="color:var(--accent);cursor:pointer;text-decoration:underline">selecciona archivo</label></p>
+              <p style="font-size:0.75rem;color:var(--text-muted)">JPG, PNG o WebP</p>
+            </div>
+            <img id="service-image-preview" style="display:none;max-width:100%;max-height:200px;object-fit:contain;border-radius:4px" alt="Preview" />
+            <button type="button" id="service-image-remove" style="display:none" class="drop-zone-remove" onclick="Services.removeImage()">&times;</button>
+            <input type="file" id="service-image-input" accept="image/jpeg,image/png,image/webp" style="display:none" data-testid="input-service-image" />
+          </div>
+        </div>
+        <div class="form-group" style="margin-top:0.5rem">
+          <label class="toggle-label">
+            <input type="checkbox" id="s-active" checked data-testid="input-service-active" /> Activo
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-outline" onclick="Services.closeModal()" data-testid="btn-service-cancel">Cancelar</button>
+          <button type="submit" class="btn btn-primary" data-testid="btn-service-save">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/settings.js"></script>
+  <script>
+    (async () => {
+      await Auth.requireAuth();
+
+      // Navigation
+      document.querySelectorAll('.sidebar-nav a').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const section = link.dataset.section;
+          document.querySelectorAll('.sidebar-nav a').forEach((l) => l.classList.remove('active'));
+          link.classList.add('active');
+
+          document.getElementById('section-projects').style.display = section === 'projects' ? 'block' : 'none';
+          document.getElementById('section-images').style.display = 'none';
+          document.getElementById('section-services').style.display = section === 'services' ? 'block' : 'none';
+          document.getElementById('section-settings').style.display = section === 'settings' ? 'block' : 'none';
+        });
+      });
+
+      // Load data
+      Projects.init();
+      Projects.load();
+      Services.init();
+      Services.load();
+      SiteSettings.load();
+    })();
+  </script>
+</body>
+</html>

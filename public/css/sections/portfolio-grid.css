@@ -1,0 +1,116 @@
+/* ==========================================================================
+   Portfolio Grid
+   Dense masonry-like grid for the portfolio/gallery page.
+   ========================================================================== */
+
+.dense-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
+  gap: 0.5rem;
+}
+
+/* Grid items */
+.grid-item {
+  position: relative !important;
+  overflow: hidden;
+  background-color: #111;
+  min-height: 0;
+}
+
+.grid-item > div:first-child {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-size: cover !important;
+  background-position: center !important;
+  transition: transform var(--transition-slow);
+}
+
+.grid-item:hover > div:first-child {
+  transform: scale(1.07);
+}
+
+/* Row span helpers */
+.item-h-1 { grid-row: span 1; }
+.item-h-2 { grid-row: span 2; }
+.item-h-3 { grid-row: span 3; }
+
+/* Column span helpers */
+.item-w-1 { grid-column: span 1; }
+.item-w-2 { grid-column: span 2; }
+.item-w-3 { grid-column: span 3; }
+
+/* Hover overlay with project info */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: var(--color-overlay);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 1.5rem;
+}
+
+.grid-item:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-overlay h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.project-overlay span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.project-overlay p {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-top: 0.25rem;
+}
+
+/* Texture/detail crop treatment */
+.texture-shot {
+  filter: grayscale(100%) contrast(120%);
+  transition: filter var(--transition-slow);
+}
+
+.texture-shot:hover {
+  filter: grayscale(0%) contrast(100%);
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 1023px) {
+  .dense-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+}
+
+@media (max-width: 639px) {
+  .dense-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 220px;
+  }
+
+  .item-w-2,
+  .item-w-3 {
+    grid-column: span 1;
+  }
+}

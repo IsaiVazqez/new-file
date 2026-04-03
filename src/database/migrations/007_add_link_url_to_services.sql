@@ -1,0 +1,1 @@
+ALTER TABLE services ADD COLUMN link_url TEXT DEFAULT '';

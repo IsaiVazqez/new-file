@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto — NewFile Studio | Visualización Arquitectónica Mérida</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Contáctanos para tu proyecto de visualización arquitectónica en Mérida, Yucatán. Renders 3D, recorridos virtuales y experiencias 360. Escríbenos a hola@newfile.studio o llámanos al +52 (999) 123 4567." />
+  <meta name="keywords" content="contacto NewFile Studio, renders 3D Mérida, cotización visualización arquitectónica, estudio arquitectura Yucatán, presupuesto renders" />
+  <meta name="author" content="NewFile Studio" />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="MX-YUC" />
+  <meta name="geo.placename" content="Mérida" />
+  <link rel="canonical" href="https://newfile.studio/contacto" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contacto — NewFile Studio" />
+  <meta property="og:description" content="Contáctanos para tu proyecto de arquitectura. Renders 3D, recorridos virtuales en Mérida, Yucatán." />
+  <meta property="og:url" content="https://newfile.studio/contacto" />
+  <meta property="og:site_name" content="NewFile Studio" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:image" content="https://newfile.studio/assets/images/logo-negro-full.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contacto — NewFile Studio" />
+  <meta name="twitter:description" content="Renders 3D y recorridos virtuales en Mérida, Yucatán. Contáctanos." />
+  <meta name="twitter:image" content="https://newfile.studio/assets/images/logo-negro-full.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/logo-negro.png" />
+  <link rel="apple-touch-icon" href="assets/images/logo-negro.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contacto — NewFile Studio",
+    "description": "Página de contacto de NewFile Studio, estudio de visualización arquitectónica en Mérida, Yucatán.",
+    "url": "https://newfile.studio/contacto",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "NewFile Studio",
+      "telephone": "+52-999-123-4567",
+      "email": "hola@newfile.studio",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle 60 #450, Centro Histórico",
+        "addressLocality": "Mérida",
+        "addressRegion": "Yucatán",
+        "postalCode": "97000",
+        "addressCountry": "MX"
+      }
+    }
+  }
+  </script>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link href="css/styles.css" rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#ffffff",
+            "accent": "#a3a3a3",
+            "background-dark": "#000000",
+            "surface": "#121212",
+          },
+          fontFamily: {
+            "sans": ["Jost", "sans-serif"],
+            "serif": ["Jost", "sans-serif"]
+          },
+          borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-black text-white antialiased selection:bg-white/20">
+  <!-- Page Loader -->
+  <div class="page-loader" id="page-loader">
+    <div class="loader-logo">
+      <div class="loader-ring"></div>
+      <img src="assets/images/logo-blanco.png" alt="NewFile" />
+    </div>
+    <p class="loader-brand">NewFile Studio</p>
+    <div class="loader-progress"></div>
+  </div>
+
+  <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="flex-1 pt-40 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+
+      <!-- Page Title -->
+      <div class="fade-in mb-20 md:mb-24">
+        <h1 class="text-4xl md:text-5xl font-light uppercase tracking-[0.15em] text-white/90">Contacto</h1>
+        <div class="h-px w-24 bg-white mt-8"></div>
+      </div>
+
+      <!-- Two-Column Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-20">
+
+        <!-- Left Column — Contact Info -->
+        <div class="md:col-span-4 fade-in-left flex flex-col">
+
+          <!-- Contacto Directo -->
+          <div class="mb-12">
+            <p class="text-xs font-medium tracking-[0.15em] uppercase text-white/40 mb-6">Contacto Directo</p>
+            <a href="mailto:hola@newfile.studio" data-setting="contact_email" class="block text-white/70 hover:text-white transition-colors text-sm mb-4"><span id="setting-email-text">hola@newfile.studio</span></a>
+            <a href="https://wa.me/529991234567" target="_blank" data-setting="whatsapp_url" class="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors text-sm">
+              <svg class="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.654-.698c.997.599 1.956.913 3.243.913 3.179 0 5.767-2.587 5.767-5.766 0-3.18-2.587-5.767-5.767-5.767zm6.656 12.423c-1.688 1.686-3.929 2.616-6.289 2.616-1.398 0-2.736-.348-3.945-1.026l-4.437 1.164 1.184-4.321c-.722-1.258-1.104-2.673-1.104-4.133 0-4.686 3.814-8.5 8.5-8.5 2.273 0 4.41.885 6.098 2.572 1.686 1.688 2.616 3.928 2.616 6.289 0 2.361-.929 4.498-2.623 6.185zm-1.958-4.576c-.244-.122-1.444-.712-1.667-.793-.223-.082-.385-.122-.548.122-.162.244-.629.793-.77.955-.142.163-.284.183-.528.061-.244-.122-1.028-.379-1.959-1.209-.723-.644-1.211-1.44-1.353-1.684-.142-.244-.015-.376.107-.497.109-.109.244-.284.365-.426.122-.142.163-.244.244-.406.081-.163.041-.305-.02-.427-.061-.122-.548-1.321-.751-1.809-.198-.475-.4-.41-.548-.418-.142-.007-.305-.008-.467-.008-.162 0-.426.061-.649.305-.223.244-.852.833-.852 2.031 0 1.199.873 2.358.995 2.52.122.163 1.717 2.622 4.159 3.677 2.012.869 2.012.579 2.378.539.366-.041 1.444-.59 1.647-1.159.203-.569.203-1.056.142-1.159-.061-.102-.223-.163-.467-.285z" fill-rule="evenodd"></path></svg>
+              <span id="setting-phone-text">+52 (999) 123 4567</span>
+            </a>
+          </div>
+
+          <!-- Visitanos -->
+          <div class="mb-12">
+            <p class="text-xs font-medium tracking-[0.15em] uppercase text-white/40 mb-6">Visitanos</p>
+            <address class="not-italic text-white/70 text-sm leading-relaxed">
+              <p id="setting-address">Calle 60 #450, Centro Historico,<br />
+              Merida, Yucatan</p>
+            </address>
+          </div>
+
+          <!-- Siguenos -->
+          <div class="mt-auto pt-8">
+            <p class="text-xs font-medium tracking-[0.15em] uppercase text-white/40 mb-6">Siguenos</p>
+            <div class="flex flex-col gap-3">
+              <a href="#" data-setting="social_instagram" class="text-white/70 hover:text-white transition-colors text-sm border-b border-transparent hover:border-white/40 inline-block w-fit pb-0.5">Instagram</a>
+              <a href="#" data-setting="social_linkedin" class="text-white/70 hover:text-white transition-colors text-sm border-b border-transparent hover:border-white/40 inline-block w-fit pb-0.5">LinkedIn</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column — Contact Form -->
+        <div class="md:col-span-8 lg:col-span-7 lg:col-start-6 fade-in-right">
+          <form id="contact-form" class="flex flex-col gap-6" data-testid="contact-form">
+            <input type="text" name="name" placeholder="Nombre" required class="minimal-input" data-testid="contact-name" style="background-color: rgba(255,255,255,0.05); color: white; border-color: rgba(255,255,255,0.15);" />
+            <input type="email" name="email" placeholder="Email" required class="minimal-input" data-testid="contact-email" style="background-color: rgba(255,255,255,0.05); color: white; border-color: rgba(255,255,255,0.15);" />
+            <textarea name="message" placeholder="Mensaje" required rows="6" class="minimal-input" data-testid="contact-message" style="background-color: rgba(255,255,255,0.05); color: white; border-color: rgba(255,255,255,0.15);"></textarea>
+            <div class="mt-4">
+              <button type="submit" class="bg-white text-black px-12 py-4 text-xs font-bold tracking-widest uppercase hover:scale-105 transition-transform" data-testid="contact-submit">
+                Enviar
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- ============================================================
+           INSTAGRAM FEED
+           ============================================================ -->
+      <section class="mt-24 md:mt-32 fade-in">
+        <div class="flex items-center justify-between mb-10">
+          <div>
+            <p class="text-xs font-medium tracking-[0.2em] uppercase text-white/40 mb-2">Síguenos en</p>
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">@new.file</h2>
+          </div>
+          <a href="https://www.instagram.com/new.file" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors border border-white/15 px-5 py-2.5 hover:border-white/30">
+            <svg class="size-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+            <span class="tracking-widest uppercase text-xs font-medium">Ver perfil</span>
+          </a>
+        </div>
+
+        <!-- Grid: populated dynamically by instagram-feed.js -->
+        <div class="ig-grid" data-testid="instagram-feed"></div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/components/header.js"></script>
+  <script src="js/components/footer.js"></script>
+  <script src="js/components/instagram-feed.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/lazyload.js"></script>
+  <script>
+    (async function() {
+      try {
+        var res = await fetch('/api/v1/settings');
+        var data = await res.json();
+        if (!data.success) return;
+
+        var settings = {};
+        data.data.forEach(function(s) { settings[s.key] = s.value; });
+
+        // Update address
+        var addr = document.getElementById('setting-address');
+        if (addr && settings.contact_address) addr.textContent = settings.contact_address;
+
+        // Update contact email display text
+        var emailDisplay = document.getElementById('setting-email-text');
+        if (emailDisplay && settings.contact_email) emailDisplay.textContent = settings.contact_email;
+
+        // Update phone display
+        var phoneDisplay = document.getElementById('setting-phone-text');
+        if (phoneDisplay && settings.contact_phone) phoneDisplay.textContent = settings.contact_phone;
+
+        // Update links via data-setting (same pattern as footer.js)
+        document.querySelectorAll('[data-setting]').forEach(function(el) {
+          var key = el.getAttribute('data-setting');
+          var val = settings[key];
+          if (!val) return;
+          if (key === 'contact_email') el.href = 'mailto:' + val;
+          else if (key === 'contact_phone') el.href = 'tel:' + val;
+          else el.href = val;
+        });
+      } catch(e) {}
+    })();
+  </script>
+</body>
+</html>
