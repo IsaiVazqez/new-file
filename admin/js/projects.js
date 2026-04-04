@@ -296,20 +296,7 @@ const Projects = {
     let coverUrl = document.getElementById('p-cover').value;
     const loader = Toast.loading('Guardando proyecto...');
 
-    // Upload cover file (first file) if selected
-    if (this.coverFiles.length > 0) {
-      const formData = new FormData();
-      formData.append('cover', this.coverFiles[0]);
-      const uploadRes = await api.post('/api/v1/projects/upload-cover', formData);
-      if (uploadRes?.success) {
-        coverUrl = uploadRes.data.url;
-      } else {
-        Toast.dismiss(loader);
-        Toast.error('Error al subir la imagen de portada');
-        return;
-      }
-    }
-
+    // Step 1: Save/create the project first (without cover if new files)
     const body = {
       title: document.getElementById('p-title').value,
       description: document.getElementById('p-description').value,
@@ -325,32 +312,46 @@ const Projects = {
       ? await api.put(`/api/v1/projects/${id}`, body)
       : await api.post('/api/v1/projects', body);
 
-    if (res?.success) {
-      const projectId = id || res.data.id;
-
-      // Upload additional files as gallery images
-      if (this.coverFiles.length > 1) {
-        Toast.dismiss(loader);
-        const imgLoader = Toast.loading(`Subiendo ${this.coverFiles.length - 1} imagen(es)...`);
-        for (let i = 1; i < this.coverFiles.length; i++) {
-          const form = new FormData();
-          form.append('image', this.coverFiles[i]);
-          form.append('project_id', projectId);
-          await api.post('/api/v1/images/upload', form);
-        }
-        Toast.dismiss(imgLoader);
-      } else {
-        Toast.dismiss(loader);
-      }
-
-      Toast.success(id ? 'Proyecto actualizado' : 'Proyecto creado');
-      this.closeModal();
-      await this.load();
-      if (this.previewMode) this.renderPreview();
-    } else {
+    if (!res?.success) {
       Toast.dismiss(loader);
       Toast.error('Error al guardar el proyecto');
+      return;
     }
+
+    const projectId = id || res.data.id;
+
+    // Step 2: Upload cover file with project_id (so it registers in images table too)
+    if (this.coverFiles.length > 0) {
+      const formData = new FormData();
+      formData.append('cover', this.coverFiles[0]);
+      formData.append('project_id', projectId);
+      const uploadRes = await api.post('/api/v1/projects/upload-cover', formData);
+      if (uploadRes?.success) {
+        coverUrl = uploadRes.data.url;
+        // Update the project with the cover URL
+        await api.put(`/api/v1/projects/${projectId}`, { ...body, cover_image_url: coverUrl });
+      }
+    }
+
+    // Step 3: Upload additional files as gallery images
+    if (this.coverFiles.length > 1) {
+      Toast.dismiss(loader);
+      const imgLoader = Toast.loading(`Subiendo ${this.coverFiles.length - 1} imagen(es)...`);
+      for (let i = 1; i < this.coverFiles.length; i++) {
+        const form = new FormData();
+        form.append('image', this.coverFiles[i]);
+        form.append('project_id', projectId);
+        await api.post('/api/v1/images/upload', form);
+      }
+      Toast.dismiss(imgLoader);
+    } else {
+      Toast.dismiss(loader);
+    }
+
+    Toast.success(id ? 'Proyecto actualizado' : 'Proyecto creado');
+    this.closeModal();
+    await this.load();
+    if (this.previewMode) this.renderPreview();
   },
 
   async remove(id) {

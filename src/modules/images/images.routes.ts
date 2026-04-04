@@ -10,7 +10,7 @@ const upload = multer({
 
 const router: Router = Router();
 
-router.get('/', verifyToken, controller.getByProject);
+router.get('/', controller.getByProject); // Public — needed for portfolio lightbox
 router.post('/upload', verifyToken, upload.single('image'), controller.upload);
 router.delete('/:id', verifyToken, controller.remove);
 router.patch('/reorder', verifyToken, controller.reorder);

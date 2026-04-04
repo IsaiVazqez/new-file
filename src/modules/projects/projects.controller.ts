@@ -71,7 +71,8 @@ export function reorder(req: Request, res: Response, next: NextFunction): void {
 
 export function uploadCover(req: Request, res: Response, next: NextFunction): void {
   try {
-    const url = uploadCoverFile(req.file as Express.Multer.File);
+    const projectId = req.body.project_id ? Number(req.body.project_id) : undefined;
+    const url = uploadCoverFile(req.file as Express.Multer.File, projectId);
     success(res, { url }, 201);
   } catch (err) {
     next(err);

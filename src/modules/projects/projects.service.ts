@@ -49,7 +49,7 @@ export function reorder(items: ReorderItem[]): void {
   repo.reorder(items);
 }
 
-export function uploadCoverFile(file: Express.Multer.File): string {
+export function uploadCoverFile(file: Express.Multer.File, projectId?: number): string {
   if (!file) throw new AppError('File is required', 400);
   if (!ALLOWED_TYPES.includes(file.mimetype)) {
     throw new AppError('Solo se permiten archivos JPG, PNG o WebP', 400);
@@ -62,7 +62,16 @@ export function uploadCoverFile(file: Express.Multer.File): string {
 
   const ext = path.extname(file.originalname);
   const filename = `${uuidv4()}${ext}`;
+  const filePath = `/uploads/covers/${filename}`;
   fs.writeFileSync(path.join(COVERS_DIR, filename), file.buffer);
 
-  return `/uploads/covers/${filename}`;
+  // Also register in images table if project_id provided
+  if (projectId) {
+    const { getDb } = require('../../config/database');
+    getDb()
+      .prepare('INSERT INTO images (project_id, url, filename, size_bytes, sort_order) VALUES (?, ?, ?, ?, 0)')
+      .run(projectId, filePath, `covers/${filename}`, file.size);
+  }
+
+  return filePath;
 }
